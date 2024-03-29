@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttersignin/features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import 'package:fluttersignin/features/user_auth/presentation/pages/login_page.dart';
-import 'package:fluttersignin/features/user_auth/presentation/widgets/form_container_widget.dart';
+import 'package:haxplore/features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'package:haxplore/features/user_auth/presentation/pages/login_page.dart';
+import 'package:haxplore/features/user_auth/presentation/widgets/form_container_widget.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);

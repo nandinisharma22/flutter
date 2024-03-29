@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttersignin/features/user_auth/presentation/pages/home_page.dart';
-import 'package:fluttersignin/features/user_auth/presentation/pages/signup_page.dart';
-import 'package:fluttersignin/features/user_auth/presentation/widgets/form_container_widget.dart';
+import 'package:haxplore/features/user_auth/presentation/pages/home_page.dart';
+import 'package:haxplore/features/user_auth/presentation/pages/signup_page.dart';
+import 'package:haxplore/features/user_auth/presentation/widgets/form_container_widget.dart';
 
 import '../../firebase_auth_implementation/firebase_auth_services.dart';
 
@@ -13,7 +13,7 @@ class ForgotPage extends StatefulWidget {
   State<ForgotPage> createState() => _ForgotPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPageState extends State<ForgotPage> {
   final FirebaseAuthServices _auth = FirebaseAuthServices();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();

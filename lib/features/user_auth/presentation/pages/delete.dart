@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttersignin/features/user_auth/presentation/pages/login_page.dart';
+import 'package:haxplore/features/user_auth/presentation/pages/login_page.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

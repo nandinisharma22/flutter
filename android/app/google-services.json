@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "33349852623",
+    "project_id": "ticketsystem-1e4ac",
+    "storage_bucket": "ticketsystem-1e4ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33349852623:android:0257a7116c6d90b17d46ba",
+        "android_client_info": {
+          "package_name": "com.example.haxplore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBee8QZeHFWXGZlzglI6r_oOFaZ71xJyPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

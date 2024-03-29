@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:fluttersignin/features/user_auth/presentation/pages/login_page.dart';
-import 'package:fluttersignin/features/user_auth/presentation/widgets/form_container_widget.dart';
+import 'package:haxplore/features/user_auth/presentation/pages/login_page.dart';
+import 'package:haxplore/features/user_auth/presentation/widgets/form_container_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
