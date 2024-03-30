@@ -81,55 +81,70 @@ class FirebaseAuthServices{
 
 
 
+// import 'package:cloud_firestore/cloud_firestore.dart';
+
 class AppointmentManager {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> bookAppointment(String dateString, int selectedSlot,
       String userId) async {
-
-
     // Create a document reference with the selected date
-    DocumentReference bookingRef = _firestore.collection('bookings').doc(
-        dateString);
+    DocumentReference bookingRef = _firestore.collection('bookings').doc(dateString);
 
-    // Check if the document for the selected date exists
+    // Get the document snapshot for the selected date
     DocumentSnapshot dateSnapshot = await bookingRef.get();
 
     if (!dateSnapshot.exists) {
       // Document does not exist, create a new document
-      Map<String, dynamic> initialSlots = {'users': [userId]};
-      initialSlots['slot$selectedSlot'] = 1; // Set the selected slot to 1
+      Map<String, dynamic> initialSlots = {
+        'slot$selectedSlot': {
+          'numberOfTicketsBooked': 1,
+          'users': [userId],
+        }
+      };
 
       // Set the document in Firestore
       await bookingRef.set(initialSlots);
       print('Appointment booked successfully!');
     } else {
       // Document exists, get the current slot data
-      Map<String, dynamic>? slotData = dateSnapshot.data() as Map<
-          String,
-          dynamic>?;
+      Map<String, dynamic>? slotData = dateSnapshot.data() as Map<String, dynamic>?;
 
       // Check if the slot is available
-      int count = slotData?['slot$selectedSlot'] ?? 0;
-      if (count < 3) {
-        // Slot is available, update slot data with user ID
-        if (!slotData!.containsKey('users')) {
-          slotData['users'] = [userId];
-        } else {
-          List<dynamic> users = List.from(slotData['users']);
+      Map<String, dynamic>? selectedSlotData = slotData?['slot$selectedSlot'];
+
+      if (selectedSlotData != null) {
+        // Slot exists
+        int count = selectedSlotData['numberOfTicketsBooked'] ?? 0;
+        if (count < 3) {
+          // Slot is available, update slot data with user ID
+          List<dynamic> users = List.from(selectedSlotData['users']);
           users.add(userId);
-          slotData['users'] = users;
+
+          // Update slot data
+          selectedSlotData['numberOfTicketsBooked'] = count + 1;
+          selectedSlotData['users'] = users;
+
+          // Update the document in Firestore
+          await bookingRef.update({ 'slot$selectedSlot': selectedSlotData });
+          print('Appointment booked successfully!');
+        } else {
+          // Slot is fully booked
+          print('Slot is fully booked. Please choose another slot.');
         }
-        slotData['slot$selectedSlot'] = count + 1;
+      } else {
+        // Slot does not exist, create a new slot
+        Map<String, dynamic> newSlotData = {
+          'numberOfTicketsBooked': 1,
+          'users': [userId],
+        };
 
         // Update the document in Firestore
-        await bookingRef.set(slotData);
+        await bookingRef.update({ 'slot$selectedSlot': newSlotData });
         print('Appointment booked successfully!');
-      } else {
-        // Slot is fully booked
-        print('Slot is fully booked. Please choose another slot.');
       }
     }
   }
 }
+
 
