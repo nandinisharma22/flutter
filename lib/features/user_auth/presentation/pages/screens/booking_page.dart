@@ -348,7 +348,7 @@ class _BookingPageState extends State<BookingPage> {
 
                   if (user != null) {
                     final userId = user.uid;
-                    final getDayFormatted = DateFormat('EEE, d/M/y').format(_currentDay);
+                    final getDayFormatted = DateFormat('d.M.y').format(_currentDay);
 
                     await _appointmentManager.bookAppointment(getDayFormatted, getTimeInt, userId);
                     Navigator.of(context).pushNamed('/success_booked');
