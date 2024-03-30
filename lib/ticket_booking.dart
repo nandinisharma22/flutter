@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:haxplore//features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import 'features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 
 class TicketSlot {
   final int slotNumber;
@@ -7,6 +10,40 @@ class TicketSlot {
 
   TicketSlot({required this.slotNumber, required this.isAvailable});
 }
+
+// class TicketBooking{
+//   final CollectionReference bookingsCollection = FirebaseFirestore.instance.collection(('bookings'));
+//
+//   Future<void> bookTicket(User user, DateTime date, int slot) async {
+//
+//     // Check if the slot is available
+//     bool isSlotAvailable = await checkSlotAvailability(date, slot);
+//     if (!isSlotAvailable) {
+//       throw Exception('Slot $slot is already full.');
+//     }
+//
+//     // Add the booking to Firestore
+//     await bookingsCollection.add({
+//       'userId': user.uid,
+//       'date': date,
+//       'slot': slot,
+//       'timestamp': FieldValue.serverTimestamp(),
+//     });
+//   }
+
+
+// Future<bool> checkSlotAvailability(DateTime date, int slot) async {
+//   final CollectionReference bookingsCollection = FirebaseFirestore.instance.collection(('bookings'));
+//
+//   QuerySnapshot bookingsSnapshot = await bookingsCollection
+//       .where('date', isEqualTo: date)
+//       .where('slot', isEqualTo: slot)
+//       .get();
+//
+//   int numBookings = bookingsSnapshot.docs.length;
+//   return numBookings < 50;
+// }
+
 
 class TicketBookingWidget extends StatefulWidget {
   @override
@@ -87,6 +124,7 @@ class TicketBooking {
   Future<List<TicketSlot>> getSlotsForDate(DateTime date) async {
     // Implement logic to fetch available slots for the given date from Firestore
     // For simplicity, returning a hardcoded list of slots
+
     return [
       TicketSlot(slotNumber: 1, isAvailable: true),
       TicketSlot(slotNumber: 2, isAvailable: true),

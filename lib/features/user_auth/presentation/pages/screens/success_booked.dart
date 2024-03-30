@@ -12,10 +12,10 @@ class AppointmentBooked extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              flex: 3,
-              child: Lottie.asset('assets/success.json'),
-            ),
+            // Expanded(
+            //   flex: 3,
+            //   child: Lottie.asset('assets/success.json'),
+            // ),
             Container(
               width: double.infinity,
               alignment: Alignment.center,
@@ -34,7 +34,7 @@ class AppointmentBooked extends StatelessWidget {
               child: Button(
                 width: double.infinity,
                 title: 'Back to Home Page',
-                onPressed: () => Navigator.of(context).pushNamed('main'),
+                onPressed: () => Navigator.of(context).pushNamed('/home'),
                 disable: false,
               ),
             )
@@ -44,3 +44,4 @@ class AppointmentBooked extends StatelessWidget {
     );
   }
 }
+
