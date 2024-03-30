@@ -179,7 +179,7 @@ class _BookingPageState extends State<BookingPage> {
 
                   if (user != null) {
                     final userId = user.uid;
-                    final getDayFormatted = DateFormat('EEE, d/M/y').format(_currentDay);
+                    final getDayFormatted = DateFormat('d.M.y').format(_currentDay);
                     print(getTime);
                     print("\n");
                     print(getDayFormatted);
