@@ -29,12 +29,24 @@ class QRView extends StatelessWidget {
         title: Text('QR Code'),
       ),
       body: Center(
-        child: QrImageView(
-          data: qrData,
-          version: QrVersions.auto,
-          size: 200.0,
-        ),
+        child:Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          QrImageView(
+            data: qrData,
+            version: QrVersions.auto,
+            size: 200.0,
+          ),
+          SizedBox(height: 20), // Adding space between QR code and text
+          Text(
+            'Booking Successful!',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
       ),
     );
   }
 }
+
+
