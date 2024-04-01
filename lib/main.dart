@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:haxplore/features/app/splash_screen/splash_screen.dart';
+import 'package:haxplore/features/user_auth/presentation/admin/admin_page.dart';
 import 'package:haxplore/features/user_auth/presentation/pages/screens/booking_page.dart';
 import 'package:haxplore/features/user_auth/presentation/pages/screens/home_page.dart';
 import 'package:haxplore/features/user_auth/presentation/pages/screens/login_page.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/booking_page': (context) => BookingPage(user: ModalRoute.of(context)!.settings.arguments as User),
         '/success_booked': (context) => AppointmentBooked(),
         '/': (context) => SignUpPage(), // Route to TicketBookingPage widget
+        '/admin' : (context) => AdminPage(),
       },
     );
   }

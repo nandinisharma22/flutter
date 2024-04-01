@@ -44,4 +44,3 @@ class AppointmentBooked extends StatelessWidget {
     );
   }
 }
-
