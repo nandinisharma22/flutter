@@ -10,6 +10,7 @@ Welcome to the Temple Ticketing System! This Flutter project aims to provide use
 - *Ticket Availability Check*: Users can check the availability of tickets for any particular date of their choice.
 - *Ticket Booking*: Once available, users can book tickets for their desired date. Multiple tickets can be booked by a user.
 - *QR Code Generation*: Upon successful booking, a QR code is generated as a ticket for the user.
+- *Admin QR Scanner*: Admin kogin opens a separate UI, whihc consists of a QR scanner of whihc on scanning out generated QR, gives a popup with the UserID and the date and time of the slot whihc the user has booked, thus verifying the booking.
 - *Booking Limit*: Users can book tickets for up to 2 months from the current date.
 For each slot there are 100 available tickets.
 
