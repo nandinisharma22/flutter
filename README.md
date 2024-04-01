@@ -1,6 +1,6 @@
 # Haxplore'24
 
-Temple Ticketing System
+*Temple Ticketing System*
 
 Welcome to the Temple Ticketing System! This Flutter project aims to provide users with a convenient platform to register, login, and book tickets for temple visits. Users can easily check ticket availability for their desired date and book tickets seamlessly. 
 
