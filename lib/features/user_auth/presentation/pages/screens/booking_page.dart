@@ -109,7 +109,7 @@ class _BookingPageState extends State<BookingPage> {
                       final data = snapshot.data!.data() as Map<String, dynamic>?;
                       final slotKey = 'slot${(index + 9) * 100}';
                       final noOfTicketsBooked = data != null && data.containsKey(slotKey) ? data[slotKey]['numberOfTicketsBooked'] : 0;
-                      final availableTickets = 3 - noOfTicketsBooked;
+                      final availableTickets = 100 - noOfTicketsBooked;
 
                       return InkWell(
                         splashColor: Colors.transparent,
@@ -134,7 +134,7 @@ class _BookingPageState extends State<BookingPage> {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: _currentIndex == index ? Colors.white : null,
-                              fontSize: 16,
+                              fontSize: 12,
                             ),
                           ),
                         ),
