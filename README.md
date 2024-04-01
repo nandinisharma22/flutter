@@ -6,9 +6,10 @@ Welcome to the Temple Ticketing System! This Flutter project aims to provide use
 
 ## Features
 
-- *User Registration and Login*: Users can create an account and log in securely to access the ticket booking system.
-- *Ticket Availability Check*: Users can check the availability of tickets for any particular date of their choice.
-- *Ticket Booking*: Once available, users can book tickets for their desired date. Multiple tickets can be booked by a user.
+- *User Registration and Login*: Users can create an account and log in securely to access the ticket booking system. Authentication is done using Firebase.
+- *Ticket Availability Check*: Users can check the availability of tickets for any particular date of their choice. Database is managed using Firebase Firestore.
+- *Ticket Booking*: Once available, users can book tickets for their desired date. Multiple tickets can be booked by a user. Database is managed using Firebase 
+ Firestore.
 - *QR Code Generation*: Upon successful booking, a QR code is generated as a ticket for the user.
 - *Admin QR Scanner*: Admin login opens a separate UI, which consists of a QR scanner of whihc on scanning our generated QR, gives a popup with the UserID and the date and time of the slot which the user has booked, thus verifying the booking.
 - *Booking Limit*: Users can book tickets for up to 2 months from the current date.
