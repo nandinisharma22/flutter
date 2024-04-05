@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:haxplore/features/user_auth/presentation/pages/screens/qr_gen.dart';
 import 'package:intl/intl.dart';
 import 'package:haxplore/features/user_auth/presentation/pages/models/booking_datetime_converted.dart';
 import 'package:haxplore/features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
@@ -173,36 +172,14 @@ class _BookingPageState extends State<BookingPage> {
 
                   if (user != null) {
                     final userId = user.uid;
-                    final getDayFormatted = DateFormat('d.M.y').format(
-                        _currentDay);
+                    final getDayFormatted = DateFormat('d.M.y').format(_currentDay);
 
-                    bool isBookingSuccessful = await _appointmentManager
-                        .bookAppointment(
-                        getDayFormatted, getTimeInt, userId);
-                    if (isBookingSuccessful) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => QRView(
-                            userId: user.uid,
-                            date: getDayFormatted,
-                            slot: getTimeInt.toString(), // Assuming getTimeInt is a String
-                          ),
-                        ),
-                      );
-                    }
-                    else {
-                      // Show a message on the screen indicating that no booking is available in this slot
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('No booking available in this slot.'),
-                        ),
-                      );
-                    }
+                    await _appointmentManager.bookAppointment(getDayFormatted, getTimeInt, userId);
+                    Navigator.of(context).pushNamed('/success_booked');
                   } else {
                     // Handle the case where the user is not logged in
                   }
                 },
-
                 disable: _timeSelected && _dateSelected ? false : true,
               ),
             ),

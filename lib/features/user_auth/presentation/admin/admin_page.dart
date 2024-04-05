@@ -1,3 +1,54 @@
+// import 'package:flutter/material.dart';
+// import 'package:qr_code_scanner/qr_code_scanner.dart';
+//
+// class AdminPage extends StatelessWidget {
+//   AdminPage({Key? key}) : super(key: key);
+//
+//   final GlobalKey qrKey = GlobalKey();
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Admin Page"),
+//       ),
+//       body: Column(
+//         children: [
+//           Expanded(
+//             flex: 4,
+//             child: Center(
+//               child: _buildQrScanner(),
+//             ),
+//           ),
+//           Expanded(
+//             flex: 1,
+//             child: Container(
+//               alignment: Alignment.center,
+//               child: Text(
+//                 "Scan QR Code",
+//                 style: TextStyle(fontSize: 20),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _buildQrScanner() {
+//     return QRView(
+//       key: qrKey,
+//       onQRViewCreated: _onQRViewCreated,
+//     );
+//   }
+//
+//   void _onQRViewCreated(QRViewController controller) {
+//     controller.scannedDataStream.listen((scanData) {
+//       // Handle scanned QR code data here
+//       print("Scanned data: ${scanData.code}");
+//     });
+//   }
+// }
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 

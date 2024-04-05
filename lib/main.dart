@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
 
         '/delete': (context) => DeleteAccount(),
         '/booking_page': (context) => BookingPage(user: ModalRoute.of(context)!.settings.arguments as User),
-        '/success_booked': (context) => AppointmentBooked(),
+        // '/success_booked': (context) => AppointmentBooked(),
         '/': (context) => SignUpPage(), // Default route is SignUpPage
       },
     );
